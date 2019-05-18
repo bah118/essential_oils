@@ -1,8 +1,7 @@
 class CLI 
   
   def call 
-    binding.pry
-    
+    Scraper.scrape_oils
   end
   
 end
