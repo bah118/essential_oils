@@ -1,11 +1,11 @@
 class Oil 
   
-  attr_accessor :name, :url, :effects
+  attr_accessor :name, :url, :botanical_name, :effects, :origin, :plant_part, :story
   @@all = []
   
   def initialize(name)
     @name = name
-    @effects = []
+  #  @effects = []
     @@all << self
   end
   
