@@ -16,8 +16,11 @@ class CLI
   end
   
   def list_oils
-    
-    
+    number = 1
+    Oil.all.each do |oil|
+      puts "#{number}. #{oil.name}"
+      number += 1
+    end
   end
   
   def list_oil_details(oil)
