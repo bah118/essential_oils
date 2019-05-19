@@ -1,6 +1,7 @@
 class Scraper
   
   # scrape and make oil objects, only gets called once
+  
   def self.scrape_oils
     html = open("https://www.gardenoflife.com/content/essential-oils/")
     doc = Nokogiri::HTML(html)
@@ -20,19 +21,21 @@ class Scraper
           oil.effects << p.text
         end
         oil.url = el.children[2].css("a").attr("href").value
-        binding.pry  
+        
       else
         index += 1
       end
-      
+        
     end
-    
   end
+  
+  
+  #gets called once per oil
   
   def self.scrape_oil_details(oil)
     html = open(oil.url)
     doc = Nokogiri::HTML(html)
     
   end
-  
+
 end

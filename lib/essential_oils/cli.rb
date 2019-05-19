@@ -15,4 +15,18 @@ class CLI
     end
   end
   
+  def list_oils
+    
+    
+  end
+  
+  def list_oil_details(oil)
+    puts "#{oil.name}"
+    puts "Botanical name: #{oil.botanical_name}"
+    puts "Origin: #{oil.origin}"
+    puts "Plant part: #{oil.plant_part}"
+    puts "Story: #{oil.story}"
+    puts "Effects: #{oil.effects}"
+  end
+
 end
