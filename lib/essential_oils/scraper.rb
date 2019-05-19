@@ -6,22 +6,24 @@ class Scraper
     html = open("https://www.gardenoflife.com/content/essential-oils/")
     doc = Nokogiri::HTML(html)
     index = 0
-    doc.css("div .single-content")[0].children.each do |el|
+    doc.css("div .single-content")[0].children.each do |element|
       if index >= 4 && index = doc.css("div .single-content")[0].children.count - 1
         
-        #can make make oil method
-        oil = Oil.new(el.children[1].css("h3").text)
-        el.children[1].css("p").each do |p|
+        #first data column
+        oil = Oil.new(element.children[1].css("h3").text)
+        element.children[1].css("p").each do |p|
           oil.effects << p.text
         end
-        oil.url = el.children[0].css("a").attr("href").value
+        oil.url = element.children[0].css("a").attr("href").value
         
-        oil = Oil.new(el.children[3].css("h3").text)
-        el.children[3].css("p").each do |p|
+        #second data column
+        oil = Oil.new(element.children[3].css("h3").text)
+        element.children[3].css("p").each do |p|
           oil.effects << p.text
         end
-        oil.url = el.children[2].css("a").attr("href").value
+        oil.url = element.children[2].css("a").attr("href").value
         
+        binding.pry
       else
         index += 1
       end
@@ -35,7 +37,12 @@ class Scraper
   def self.scrape_oil_details(oil)
     html = open(oil.url)
     doc = Nokogiri::HTML(html)
+    index = 0
+    doc.css("div .product-content")[1].children.each do |element|
+      
+    end
     
   end
+    
 
 end

@@ -11,7 +11,7 @@ class CLI
       puts "Enter the number of an essential oil to see its details or 'exit' to exit."
       inputs = gets.strip
       # scrape page of selected oil if not already scraped
-    
+    # binding.pry
     end
   end
   
