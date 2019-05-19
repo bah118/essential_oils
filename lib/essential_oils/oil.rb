@@ -5,7 +5,7 @@ class Oil
   
   def initialize(name)
     @name = name
-  #  @effects = []
+    @effects = []
     @@all << self
   end
   
