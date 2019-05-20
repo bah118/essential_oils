@@ -9,9 +9,14 @@ class CLI
     list_oils
     puts ""
     input = ""
+    
     while input != "exit" do
       puts "Enter a number to see details for that essential oil or type 'exit' to exit."
       input = gets.strip
+            
+      Scraper.scrape_oil_details(Oil.all[input.to_i - 1])
+      # oil selected = Oil.all[input_number - 1]
+      
       # scrape page of selected oil if not already scraped
     # binding.pry
     end
