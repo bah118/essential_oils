@@ -1,12 +1,9 @@
-# CLI Controller
-
 class CLI 
   
   def call 
     puts "Welcome to Essential Oils!"
     Scraper.scrape_oils
     input = ""
-    
     while input.downcase != "exit" do
       list_oils
       puts "", "Enter a number to see details for that essential oil or type 'exit' to exit."
@@ -16,7 +13,6 @@ class CLI
         Scraper.scrape_oil_details(oil) if !oil.origin
         list_oil_details(oil)
       end
-    
     end
   end
   
