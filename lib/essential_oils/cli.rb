@@ -1,9 +1,9 @@
 class CLI 
   
   def call 
-    puts "******************************".colorize(:magenta).bold
+    puts "******************************".colorize(:light_magenta)
     puts "  Welcome to Essential Oils!".colorize(:light_blue).bold
-    puts "******************************".colorize(:magenta).bold
+    puts "******************************".colorize(:light_magenta)
     Scraper.scrape_oils
     input = ""
     while input.downcase != "exit" do
