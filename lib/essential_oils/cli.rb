@@ -4,22 +4,25 @@ class CLI
   
   def call 
     puts "Welcome to Essential Oils!"
-    puts
     Scraper.scrape_oils
     input = ""
     
-    while input != "exit" do
+    while input.downcase != "exit" do
       list_oils
       puts "", "Enter a number to see details for that essential oil or type 'exit' to exit."
       input = gets.strip
-      oil = Oil.all[input.to_i - 1]
-      Scraper.scrape_oil_details(oil) if !oil.origin
-      list_oil_details(oil)
+      if input.to_i >= 1 && input.to_i <= Oil.all.count
+        oil = Oil.all[input.to_i - 1]
+        Scraper.scrape_oil_details(oil) if !oil.origin
+        list_oil_details(oil)
+      end
+    
     end
   end
   
   def list_oils
     number = 1
+    puts
     Oil.all.each do |oil|
       puts "#{number}. #{oil.name}"
       number += 1
@@ -34,7 +37,7 @@ class CLI
     puts "#{oil.plant_part}", ""
     puts "#{oil.story}", ""
     puts "#{oil.use}", ""
-    puts "#{oil.applications}", ""
+    puts "#{oil.applications}"
   end
 
 end
