@@ -21,32 +21,22 @@ class Scraper
           oil.effects << p.text
         end
         oil.url = element.children[2].css("a").attr("href").value
-    
     end
-      
   end
   
   
-  #gets called once per oil
+  # gets called once per oil
   
   def self.scrape_oil_details(oil)
     html = open(oil.url)
     doc = Nokogiri::HTML(html)
-    doc.css("div .detail")[0].children[1].each do |element|
-      oil.botanical_name = element.css("p")[0].text
-      oil.attributes = element.css("p")[1].text
-      oil.origin = element.css("p")[2].text
-      oil.plant_part = element.css("p")[3].text
-      oil.story = element.css("p")[4].text
-      oil.use = element.css("p")[5].text
-      oil.applications = element.css("p")[6].text
-      
-      binding.pry
-
-      
-    end
-    
+    oil.botanical_name = doc.css("div .detail")[0].children[1].css("p")[0].text
+    oil.attributes = doc.css("div .detail")[0].children[1].css("p")[1].text
+    oil.origin = doc.css("div .detail")[0].children[1].css("p")[2].text
+    oil.plant_part = doc.css("div .detail")[0].children[1].css("p")[3].text
+    oil.story = doc.css("div .detail")[0].children[1].css("p")[4].text
+    oil.use = doc.css("div .detail")[0].children[1].css("p")[5].text
+    oil.applications = doc.css("div .detail")[0].children[1].css("p")[6].text
   end
     
-
 end

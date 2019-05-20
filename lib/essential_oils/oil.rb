@@ -1,6 +1,6 @@
 class Oil 
   
-  attr_accessor :name, :url, :botanical_name, :effects, :origin, :plant_part, :story
+  attr_accessor :name, :url, :effects, :botanical_name, :attributes, :origin, :plant_part, :story, :use, :applications
   @@all = []
   
   def initialize(name)
