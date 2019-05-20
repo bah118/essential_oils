@@ -1,7 +1,9 @@
 class CLI 
   
   def call 
-    puts "Welcome to Essential Oils!"
+    puts "******************************"
+    puts "  Welcome to Essential Oils!"
+    puts "******************************"
     Scraper.scrape_oils
     input = ""
     while input.downcase != "exit" do
@@ -18,7 +20,7 @@ class CLI
   
   def list_oils
     number = 1
-    puts
+    puts "", "Here are our essential oils:", ""
     Oil.all.each do |oil|
       puts "#{number}. #{oil.name}"
       number += 1
