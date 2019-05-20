@@ -16,6 +16,7 @@ class CLI
         list_oil_details(oil)
       end
     end
+    puts "Have a great day!"
   end
   
   def list_oils
