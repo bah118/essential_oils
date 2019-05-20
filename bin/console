@@ -3,6 +3,7 @@
 require "bundler/setup"
 require "essential_oils"
 
+
 # You can add fixtures and/or initialization code here to make experimenting
 # with your gem easier. You can also use a different console, if you like.
 
@@ -12,3 +13,4 @@ require "essential_oils"
 
 require "irb"
 IRB.start(__FILE__)
+
