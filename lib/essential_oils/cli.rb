@@ -10,6 +10,11 @@ class CLI
       list_oils
       puts "", "Enter a number to see details for that essential oil or type 'exit' to exit.".colorize(:green)
       input = gets.strip
+      until (input.to_i >= 1 && input.to_i <= Oil.all.count) || input == "exit"
+        puts "Invalid input. Enter a number or 'exit' to exit.".colorize(:light_magenta)
+        input = gets.strip 
+      end
+      
       if input.to_i >= 1 && input.to_i <= Oil.all.count
         oil = Oil.all[input.to_i - 1]
         Scraper.scrape_oil_details(oil) if !oil.origin
